@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh10em4dyobb2"]
+
+[ext_resource type="Script" path="res://Scripts/yarn_ball.gd" id="1_r12ts"]
+[ext_resource type="Texture2D" uid="uid://i7d6kxgyjtki" path="res://Art/Yarn.png" id="2_3k7g2"]
+
+[node name="YarnBall" type="Node2D"]
+script = ExtResource("1_r12ts")
+speed = 30
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_3k7g2")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(6.1, 6.1)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_exited_screen"]
